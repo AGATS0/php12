@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Список автомобилей после 2015</h1>
+
+      {% if carsafter2015 is not empty %}
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Имя</th>
+                <th>Год</th>
+                <th>Цена</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for car in carsafter2015 %}
+                <tr>
+                    <td>{{ car.id }}</td>
+                    <td>{{ car.name }}</td>
+                    <td>{{ car.year }}</td>
+                    <td>{{ car.price }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>cars не найдены.</p>
+    {% endif %}
+
+     <h1>Список автомобилей</h1>
+
+      {% if cars is not empty %}
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Имя</th>
+                <th>Год</th>
+                <th>Цена</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for car in cars %}
+                <tr>
+                    <td>{{ car.id }}</td>
+                    <td>{{ car.name }}</td>
+                    <td>{{ car.year }}</td>
+                    <td>{{ car.price }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>cars не найдены.</p>
+    {% endif %}
+
+    <div>
+         <a href="{{ path('app_movie_base') }}" class="btn btn-secondary">
+                ← Назад к списку действий
+        </a>
+    </div>
+    
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+     <h1>Список фильмов</h1>
+
+      {% if movies is not empty %}
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Название</th>
+                <th>Год</th>
+                <th>-</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for movie in movies %}
+                <tr>
+                    <td>{{ movie.id }}</td>
+                    <td>{{ movie.title }}</td>
+                    <td>{{ movie.year }}</td>
+                    <td><a href="{{ path('app_movie_show', {'id': movie.id}) }}">Подробнее</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>movies не найдены.</p>
+    {% endif %}
+
+    <div>
+         <a href="{{ path('app_movie_base') }}" class="btn btn-secondary">
+                ← Назад к списку действий
+        </a>
+    </div>
+    
+
+</body>
+</html>
+
