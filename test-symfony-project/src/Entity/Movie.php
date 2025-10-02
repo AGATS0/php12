@@ -19,6 +19,11 @@ class Movie
     #[ORM\Column]
     private ?int $year = null;
 
+    #[ORM\Column(length: 1000)]
+    private ?string $description = null;
+
+    
+
     public function getId(): ?int
     {
         return $this->id;
@@ -47,4 +52,18 @@ class Movie
 
         return $this;
     }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): static
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    
 }
